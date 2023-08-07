@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="Navigationbar">
+    <div>
+      <img src="../assets/logo.png" width="85px" height="85px" />
+    </div>
+    <div class="nav">
+      <p [routerLink]="'home'">Home</p>
+      <p [routerLink]="'service'">Service</p>
+      <p [routerLink]="'about'">About</p>
+      <p [routerLink]="'contact'">Contact</p>
+    </div>
+    <button class="button">Login</button>
+  </div>
+  <div class="router_div">
+    <router-outlet></router-outlet>
+  </div>
+</div>

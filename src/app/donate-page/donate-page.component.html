@@ -1,0 +1,149 @@
+<div class="main">
+  <div class="left">
+    <h1>Give the gift of food</h1>
+    <div>
+      <img src="../../assets/donatefood.jpg" />
+    </div>
+    <div>
+      <p class="text">
+        Share the abundance. Register as a food donor and give the gift of
+        nourishment to others.
+      </p>
+    </div>
+  </div>
+  <div class="right">
+    <div>
+      <h1>Be a donor</h1>
+    </div>
+    <div class="form_group">
+      <form [formGroup]="formInfoGroup">
+        <div>
+          <div class="container">
+            <label>Name</label>
+            <input class="box" type="text" formControlName="name" />
+          </div>
+          <div class="container">
+            <label>Email</label>
+            <input class="box" type="text" formControlName="email" />
+          </div>
+          <div class="container">
+            <label>Phone Number</label>
+            <input class="box" type="tel" formControlName="phoneNumber" />
+          </div>
+        </div>
+        <div formGroupName="foodDetails">
+          <div class="container">
+            <label>Type of food</label>
+            <select
+              name="food"
+              id="food"
+              class="box"
+              formControlName="foodType"
+            >
+              <option value=""></option>
+              <option value="Perishable">Perishable</option>
+              <option value="Non-perishable">Non-Perishable</option>
+              <option value="Cooked meals">Cooked meals</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Vegetables">Vegetables</option>
+            </select>
+          </div>
+          <div class="container">
+            <label>Name of the food item</label>
+            <input class="box" type="text" formControlName="foodItem" />
+          </div>
+          <div class="container">
+            <label>Quantity</label>
+            <input class="box" type="number" formControlName="quantity" />
+          </div>
+          <div class="container">
+            <label>Expiry date</label>
+            <input class="box" type="date" formControlName="expiryDate" />
+          </div>
+        </div>
+
+        <div formGroupName="location">
+          <div class="container">
+            <label>Address</label>
+            <input class="box" type="text" formControlName="address" />
+          </div>
+          <div class="container">
+            <label>City/Town</label>
+            <input class="box" type="text" formControlName="city" />
+          </div>
+          <div class="container">
+            <label>State/Province</label>
+            <select name="state" id="state" class="box" formControlName="state">
+              <option value=""></option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Aunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chattisgarh">Chattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkand">Jharkand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharastra">Maharastra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Andaman and Nicobar Islands">
+                Andaman and Nicobar Islands
+              </option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dadra and Nagar Haveli">
+                Dadra and Nagar Haveli
+              </option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Puducherry">Puducherry</option>
+            </select>
+          </div>
+          <div class="container">
+            <label>Zip Code/Postal Code</label>
+            <input class="box" type="text" formControlName="zipCode" />
+          </div>
+        </div>
+
+        <div formGroupName="pickupDetails">
+          <div class="container">
+            <label>Pickup Date</label>
+            <input class="box" type="date" formControlName="pickupDate" />
+          </div>
+          <div class="container">
+            <label>Additional Details(if any)</label>
+            <textarea
+              class="box"
+              type="text"
+              formControlName="additionalDetails"
+            >
+            </textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <label for="terms">I agree to the terms and conditions:</label>
+      <input type="checkbox" id="terms" name="terms" required />
+    </div>
+    <div>
+      <button class="button" (click)="submit()">Donate now</button>
+    </div>
+  </div>
+</div>

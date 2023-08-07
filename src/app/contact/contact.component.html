@@ -1,0 +1,53 @@
+<div class="main">
+  <div class="contactpage">
+    <div class="right">
+      <div class="content">
+        <p class="quote">Have any queries? We'd love to connect from you.</p>
+        <form [formGroup]="personalInfo">
+          <div class="table">
+            <input
+              class="box"
+              placeholder="Enter your name"
+              type="text"
+              formControlName="name"
+            />
+            <input
+              class="box"
+              placeholder="Enter email"
+              type="text"
+              formControlName="email"
+            />
+            <input
+              class="box"
+              placeholder="Enter Subject"
+              type="text"
+              formControlName="subject"
+            />
+            <textarea
+              class="box"
+              placeholder="Enter your message"
+              type="text"
+              formControlName="text"
+            ></textarea>
+            <button class="button" (click)="sendMail()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="left">
+      <p class="address">Address</p>
+      <div class="info">
+        <img src="../../assets/homeicon.png" />
+        <p class="ans">501,Akshaya Tower, <br />White House,Washington(D.C)</p>
+      </div>
+      <div class="info">
+        <img src="../../assets/Phoneicons.png" />
+        <p class="ans">+91 903-242-4113</p>
+      </div>
+      <div class="info">
+        <img src="../../assets/email.png" />
+        <p class="ans">ponpandian94@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>

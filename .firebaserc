@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "surfoodon": {
+      "hosting": {
+        "surfooddon": [
+          "surfoodon"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "surfoodon"
+  }
+}

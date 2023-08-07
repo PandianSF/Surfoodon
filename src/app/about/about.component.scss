@@ -1,0 +1,33 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+.about {
+  padding: 24px 20px;
+  display: flex;
+  gap: 59px;
+  align-items: center;
+  justify-content: center;
+}
+.aboutimg {
+  width: 100%;
+}
+.content {
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+.heading {
+  font-style: bold;
+  font-size: 2rem;
+  font-family: sans-serif;
+  color: orange;
+}
+.textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
