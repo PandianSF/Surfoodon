@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Service } from '../app.service';
 
@@ -16,13 +22,8 @@ export class DonatePageComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required]),
+      foodDetails: this.fb.array([]),
 
-      foodDetails: this.fb.group({
-        foodType: [''],
-        foodItem: [''],
-        quantity: [''],
-        expiryDate: [''],
-      }),
       location: this.fb.group({
         address: ['', [Validators.required]],
         city: ['', [Validators.required]],
@@ -31,11 +32,23 @@ export class DonatePageComponent implements OnInit {
       }),
       pickupDetails: this.fb.group({
         pickupDate: [''],
-        additionalDetails: [''],
+        additionalDetails: ['', [Validators.required]],
       }),
     });
   }
-  submit() {
-    const response = this.appservice.sendMail(this.formInfoGroup.value);
+  get foodDetails() {
+    return this.formInfoGroup.get('foodDetails') as FormArray;
   }
+  addFoodItem() {
+    this.foodDetails.push(this.foodDetailsForm);
+  }
+  removeFoodItem(index: number) {
+    this.foodDetails.removeAt(index);
+  }
+  foodDetailsForm = this.fb.group({
+    foodType: new FormControl('', [Validators.required]),
+    foodItem: new FormControl('', [Validators.required]),
+    quantity: new FormControl('', [Validators.required]),
+  });
+  submit() {}
 }

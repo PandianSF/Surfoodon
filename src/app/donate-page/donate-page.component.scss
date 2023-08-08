@@ -73,3 +73,8 @@ img {
   display: flex;
   flex-direction: column;
 }
+
+.invalid-form {
+  background: lightgray;
+  color: rgb(0, 0, 0, 0.1);
+}

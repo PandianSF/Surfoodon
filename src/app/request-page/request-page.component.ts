@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormControl,
+  FormControlName,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -18,13 +24,7 @@ export class RequestPageComponent implements OnInit {
       email: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required]),
 
-      foodDetails: this.fb.group({
-        foodType: [''],
-        foodItem: [''],
-        quantity: [''],
-        dietary: [''],
-        additionalDetails: [''],
-      }),
+      foodDetails: this.fb.group([]),
       location: this.fb.group({
         address: ['', [Validators.required]],
         city: ['', [Validators.required]],
@@ -53,5 +53,22 @@ export class RequestPageComponent implements OnInit {
       this.organization = true;
       this.individual = false;
     }
+  }
+
+  get foodDetails() {
+    return this.personalInfo.get('foodDetails') as FormArray;
+  }
+  addFoodItem() {
+    this.foodDetails.push(this.foodDetailsForm);
+  }
+  foodDetailsForm = this.fb.group({
+    foodType: new FormControl('', [Validators.required]),
+    foodItem: new FormControl('', [Validators.required]),
+    quantity: new FormControl('', [Validators.required]),
+    dietary: new FormControl('', [Validators.required]),
+    additionalDetails: new FormControl('', [Validators.required]),
+  });
+  removeFoodItem(index: number) {
+    this.foodDetails.removeAt(index);
   }
 }

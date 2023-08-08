@@ -153,47 +153,56 @@
           </div>
         </div>
         <div formGroupName="foodDetails">
-          <div class="container">
-            <label>Type of food Needed</label>
-            <select
-              class="box"
-              name="foodType"
-              id="foodType"
-              formControlName="foodType"
-            >
-              <option value="">None</option>
-              <option value="Perishable">Perishable</option>
-              <option value="Non-Perishable">Non-Perishable</option>
-              <option value="Cooked-Meals">Cooked-Meals</option>
-              <option value="Fruits">Fruits</option>
-              <option value="Vegetables">Vegetables</option>
-            </select>
-          </div>
-          <div class="container">
-            <label>Name of food item</label>
-            <input class="box" type="text" formControlName="foodItem" />
-          </div>
-          <div class="container">
-            <label>Quantity Needed</label>
-            <input class="box" type="number" formControlName="foodItem" />
-          </div>
-          <div class="container">
-            <label>Dietary restrictions(if any)</label>
-            <textarea
-              class="box"
-              type="text"
-              formControlName="dietary"
-            ></textarea>
-          </div>
-          <div class="container">
-            <label>Additional Details(if any)</label>
-            <textarea
-              class="box"
-              type="text"
-              formControlName="additionalDetails"
-            ></textarea>
+          <div
+            *ngFor="let foodDetailsForm of foodDetails.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="container">
+              <label>Type of food Needed</label>
+              <select
+                class="box"
+                name="foodType"
+                id="foodType"
+                formControlName="foodType"
+              >
+                <option value="">None</option>
+                <option value="Perishable">Perishable</option>
+                <option value="Non-Perishable">Non-Perishable</option>
+                <option value="Cooked-Meals">Cooked-Meals</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Vegetables">Vegetables</option>
+              </select>
+            </div>
+            <div class="container">
+              <label>Name of food item</label>
+              <input class="box" type="text" formControlName="foodItem" />
+            </div>
+            <div class="container">
+              <label>Quantity Needed</label>
+              <input class="box" type="number" formControlName="quantity" />
+            </div>
+            <div class="container">
+              <label>Dietary restrictions(if any)</label>
+              <textarea
+                class="box"
+                type="text"
+                formControlName="dietary"
+              ></textarea>
+            </div>
+            <div class="container">
+              <label>Additional Details(if any)</label>
+              <textarea
+                class="box"
+                type="text"
+                formControlName="additionalDetails"
+              ></textarea>
+            </div>
+            <button type="button" (click)="removeFoodItem(i)">
+              Remove Item
+            </button>
           </div>
         </div>
+        <button type="button" (click)="addFoodItem()">Add Item</button>
       </form>
     </div>
     <div>
