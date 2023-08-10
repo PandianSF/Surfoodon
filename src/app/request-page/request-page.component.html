@@ -37,172 +37,193 @@
       </label>
     </div>
     <div class="form_group">
-      <form [formGroup]="personalInfo">
-        <ng-container *ngIf="organization">
-          <div formGroupName="organizationInfo">
+      <form [formGroup]="formInfoGroup">
+        <div class="maincontainer">
+          <ng-container *ngIf="organization">
+            <div formGroupName="organizationInfo">
+              <div class="container">
+                <label>Type of organization</label>
+                <select
+                  class="box"
+                  name="organizationType"
+                  id="organizationType"
+                  formControlName="organizationType"
+                >
+                  <option value="Non-Profit">Non-Profit</option>
+                  <option value="Charity">Charity</option>
+                  <option value="Community center">Communtiy center</option>
+                  <option value="Orphanage">Orphanage</option>
+                  <option value="Elderly care center">
+                    Elderly care center
+                  </option>
+                </select>
+              </div>
+              <div class="container">
+                <label>Total members</label>
+                <input
+                  class="box"
+                  type="number"
+                  formControlName="totalMembers"
+                />
+              </div>
+              <div class="container">
+                <label>Description about organization(if any)</label>
+                <textarea
+                  class="box"
+                  type="text"
+                  formControlName="description"
+                ></textarea>
+              </div>
+            </div>
+          </ng-container>
+          <div>
             <div class="container">
-              <label>Type of organization</label>
-              <select
-                class="box"
-                name="organizationType"
-                id="organizationType"
-                formControlName="organizationType"
-              >
-                <option value="Non-Profit">Non-Profit</option>
-                <option value="Charity">Charity</option>
-                <option value="Community center">Communtiy center</option>
-                <option value="Orphanage">Orphanage</option>
-                <option value="Elderly care center">Elderly care center</option>
-              </select>
+              <label>Name</label>
+              <input class="box" type="text" formControlName="name" />
             </div>
             <div class="container">
-              <label>Total members</label>
-              <input class="box" type="number" formControlName="totalMembers" />
+              <label>Email</label>
+              <input class="box" type="text" formControlName="email" />
             </div>
             <div class="container">
-              <label>Description about organization(if any)</label>
-              <textarea
-                class="box"
-                type="text"
-                formControlName="description"
-              ></textarea>
+              <label>Phone Number</label>
+              <input class="box" type="tel" formControlName="phoneNumber" />
             </div>
           </div>
-        </ng-container>
-        <div>
-          <div class="container">
-            <label>Name</label>
-            <input class="box" type="text" formControlName="name" />
-          </div>
-          <div class="container">
-            <label>Email</label>
-            <input class="box" type="text" formControlName="email" />
-          </div>
-          <div class="container">
-            <label>Phone Number</label>
-            <input class="box" type="tel" formControlName="phoneNumber" />
-          </div>
-        </div>
 
-        <div formGroupName="location">
-          <div class="container">
-            <label>Address</label>
-            <input class="box" type="text" formControlName="address" />
-          </div>
-          <div class="container">
-            <label>City/Town</label>
-            <input class="box" type="text" formControlName="city" />
-          </div>
-          <div class="container">
-            <label>State/Province</label>
-            <select class="box" name="state" id="state" formControlName="state">
-              <option value=""></option>
-              <option value="Andhra Pradesh">Andhra Pradesh</option>
-              <option value="Aunachal Pradesh">Arunachal Pradesh</option>
-              <option value="Assam">Assam</option>
-              <option value="Bihar">Bihar</option>
-              <option value="Chattisgarh">Chattisgarh</option>
-              <option value="Goa">Goa</option>
-              <option value="Gujarat">Gujarat</option>
-              <option value="Haryana">Haryana</option>
-              <option value="Himachal Pradesh">Himachal Pradesh</option>
-              <option value="Jharkand">Jharkand</option>
-              <option value="Karnataka">Karnataka</option>
-              <option value="Kerala">Kerala</option>
-              <option value="Madhya Pradesh">Madhya Pradesh</option>
-              <option value="Maharastra">Maharastra</option>
-              <option value="Manipur">Manipur</option>
-              <option value="Mizoram">Mizoram</option>
-              <option value="Nagaland">Nagaland</option>
-              <option value="Odisha">Odisha</option>
-              <option value="Punjab">Punjab</option>
-              <option value="Rajasthan">Rajasthan</option>
-              <option value="Sikkim">Sikkim</option>
-              <option value="Tamil Nadu">Tamil Nadu</option>
-              <option value="Telangana">Telangana</option>
-              <option value="Tripura">Tripura</option>
-              <option value="Uttar Pradesh">Uttar Pradesh</option>
-              <option value="Uttarakhand">Uttarakhand</option>
-              <option value="West Bengal">West Bengal</option>
-              <option value="Andaman and Nicobar Islands">
-                Andaman and Nicobar Islands
-              </option>
-              <option value="Chandigarh">Chandigarh</option>
-              <option value="Dadra and Nagar Haveli">
-                Dadra and Nagar Haveli
-              </option>
-              <option value="Daman and Diu">Daman and Diu</option>
-              <option value="Lakshadweep">Lakshadweep</option>
-              <option value="Delhi">Delhi</option>
-              <option value="Puducherry">Puducherry</option>
-            </select>
-          </div>
-          <div class="container">
-            <label>ZipCode/PostalCode</label>
-            <input class="box" type="text" formControlName="zipCode" />
-          </div>
-        </div>
-        <div formGroupName="DeliveryDetails">
-          <div class="container">
-            <label>Expected delivery date</label>
-            <input class="box" type="date" formControlName="deliveryDate" />
-          </div>
-          <div class="container">
-            <label>Expected Time</label>
-            <input class="box" type="time" formControlName="deliveryTime" />
-          </div>
-        </div>
-        <div formGroupName="foodDetails">
-          <div
-            *ngFor="let foodDetailsForm of foodDetails.controls; let i = index"
-            [formGroupName]="i"
-          >
+          <div formGroupName="location">
             <div class="container">
-              <label>Type of food Needed</label>
+              <label>Address</label>
+              <input class="box" type="text" formControlName="address" />
+            </div>
+            <div class="container">
+              <label>City/Town</label>
+              <input class="box" type="text" formControlName="city" />
+            </div>
+            <div class="container">
+              <label>State/Province</label>
               <select
                 class="box"
-                name="foodType"
-                id="foodType"
-                formControlName="foodType"
+                name="state"
+                id="state"
+                formControlName="state"
               >
-                <option value="">None</option>
-                <option value="Perishable">Perishable</option>
-                <option value="Non-Perishable">Non-Perishable</option>
-                <option value="Cooked-Meals">Cooked-Meals</option>
-                <option value="Fruits">Fruits</option>
-                <option value="Vegetables">Vegetables</option>
+                <option value=""></option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Aunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chattisgarh">Chattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkand">Jharkand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharastra">Maharastra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Andaman and Nicobar Islands">
+                  Andaman and Nicobar Islands
+                </option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Dadra and Nagar Haveli">
+                  Dadra and Nagar Haveli
+                </option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Puducherry">Puducherry</option>
               </select>
             </div>
             <div class="container">
-              <label>Name of food item</label>
-              <input class="box" type="text" formControlName="foodItem" />
+              <label>ZipCode/PostalCode</label>
+              <input class="box" type="text" formControlName="zipCode" />
+            </div>
+          </div>
+          <div formGroupName="DeliveryDetails">
+            <div class="container">
+              <label>Expected delivery date</label>
+              <input class="box" type="date" formControlName="deliveryDate" />
             </div>
             <div class="container">
-              <label>Quantity Needed</label>
-              <input class="box" type="number" formControlName="quantity" />
+              <label>Expected Time</label>
+              <input class="box" type="time" formControlName="deliveryTime" />
             </div>
+          </div>
+          <div formGroupName="foodDetails">
             <div class="container">
-              <label>Dietary restrictions(if any)</label>
-              <textarea
-                class="box"
-                type="text"
-                formControlName="dietary"
-              ></textarea>
+              <label>Food Details</label>
+              <button class="box" type="button" (click)="addFoodItem()">
+                Add Item
+              </button>
             </div>
-            <div class="container">
-              <label>Additional Details(if any)</label>
-              <textarea
-                class="box"
-                type="text"
-                formControlName="additionalDetails"
-              ></textarea>
+            <div
+              *ngFor="
+                let foodDetailsForm of foodDetails.controls;
+                let i = index
+              "
+              [formGroupName]="i"
+            >
+              <div class="container">
+                <label>Type of food</label>
+                <select
+                  class="box"
+                  name="foodType"
+                  id="foodType"
+                  formControlName="foodType"
+                >
+                  <option value="">None</option>
+                  <option value="Perishable">Perishable</option>
+                  <option value="Non-Perishable">Non-Perishable</option>
+                  <option value="Cooked-Meals">Cooked-Meals</option>
+                  <option value="Fruits">Fruits</option>
+                  <option value="Vegetables">Vegetables</option>
+                </select>
+              </div>
+              <div class="container">
+                <label>Name of food item</label>
+                <input class="box" type="text" formControlName="foodItem" />
+              </div>
+              <div class="container">
+                <label>Quantity Needed</label>
+                <input class="box" type="number" formControlName="quantity" />
+              </div>
+              <div class="container">
+                <label>Dietary restrictions(if any)</label>
+                <textarea
+                  class="box"
+                  type="text"
+                  formControlName="dietary"
+                ></textarea>
+              </div>
+              <div class="container">
+                <label>Additional Details(if any)</label>
+                <textarea
+                  class="box"
+                  type="text"
+                  formControlName="additionalDetails"
+                ></textarea>
+              </div>
+              <button type="button" (click)="removeFoodItem(i)">
+                Remove Item
+              </button>
             </div>
-            <button type="button" (click)="removeFoodItem(i)">
-              Remove Item
-            </button>
           </div>
         </div>
-        <button type="button" (click)="addFoodItem()">Add Item</button>
       </form>
     </div>
     <div>

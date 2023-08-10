@@ -1,0 +1,53 @@
+<div class="main">
+  <p class="center">Be a Food Donor, Make a difference</p>
+  <p class="text">
+    Welcome! Join us in fighting hunger and food waste. Become a food donor
+    today and help change lives.
+  </p>
+  <div class="donor">
+    <div class="img">
+      <img src="../../assets/donatefood.jpg" style="width: 700px" />
+    </div>
+    <div class="content">
+      <p class="text">
+        "Food donors play a vital role in reducing food waste and addressing
+        hunger. By generously contributing surplus food from businesses and
+        individuals, they help provide nutritious meals to those in need. Their
+        efforts not only support local communities but also contribute to a more
+        sustainable and compassionate society."
+      </p>
+    </div>
+  </div>
+  <div>
+    <p class="carouselhead">What our clients say!</p>
+  </div>
+  <div class="testimonial">
+    <div class="testimonial-slider">
+      <div
+        *ngFor="let testimonial of testimonials"
+        id="testimonial"
+        class="testimonial-slide"
+        [ngClass]="{ active: testimonial === currentTestimonial }"
+      >
+        <div class="testimonial_img">
+          <img [src]="testimonial.src" />
+        </div>
+        <div class="testimonial-content">
+          <blockquote>{{ testimonial.testimonial }}</blockquote>
+        </div>
+        <div>
+          <span class="testimonial-name">{{ testimonial.name }}</span>
+          <p class="testimonial-role">{{ testimonial.role }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dots_container">
+    <span
+      *ngFor="let testimonial of testimonials; let i = index"
+      class="dot"
+      [ngClass]="{ active: testimonial == currentTestimonial }"
+      (click)="goToTestimonial(i)"
+    ></span>
+  </div>
+</div>

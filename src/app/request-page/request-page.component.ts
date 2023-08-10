@@ -7,24 +7,24 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-
+import { Service } from '../app.service';
 @Component({
   selector: 'app-request-page',
   templateUrl: './request-page.component.html',
   styleUrls: ['./request-page.component.scss'],
 })
 export class RequestPageComponent implements OnInit {
-  personalInfo!: FormGroup;
+  formInfoGroup!: FormGroup;
   individual: boolean = false;
   organization: boolean = false;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private appservice: Service) {}
   ngOnInit(): void {
-    this.personalInfo = this.fb.group({
+    this.formInfoGroup = this.fb.group({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required]),
 
-      foodDetails: this.fb.group([]),
+      foodDetails: this.fb.array([]),
       location: this.fb.group({
         address: ['', [Validators.required]],
         city: ['', [Validators.required]],
@@ -56,7 +56,7 @@ export class RequestPageComponent implements OnInit {
   }
 
   get foodDetails() {
-    return this.personalInfo.get('foodDetails') as FormArray;
+    return this.formInfoGroup.get('foodDetails') as FormArray;
   }
   addFoodItem() {
     this.foodDetails.push(this.foodDetailsForm);

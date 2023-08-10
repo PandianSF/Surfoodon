@@ -50,5 +50,8 @@ export class DonatePageComponent implements OnInit {
     foodItem: new FormControl('', [Validators.required]),
     quantity: new FormControl('', [Validators.required]),
   });
-  submit() {}
+  submit() {
+    this.formInfoGroup.reset();
+    this.foodDetails.reset();
+  }
 }

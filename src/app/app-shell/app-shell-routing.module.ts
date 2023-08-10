@@ -7,6 +7,7 @@ import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { DonatePageComponent } from '../donate-page/donate-page.component';
 import { RequestPageComponent } from '../request-page/request-page.component';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'request_page',
         component: RequestPageComponent,
+      },
+      {
+        path: 'carousel',
+        component: CarouselComponent,
       },
     ],
   },

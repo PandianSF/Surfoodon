@@ -14,6 +14,7 @@ import { RequestPageComponent } from './request-page/request-page.component';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { environment } from 'src/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     ServiceComponent,
     DonatePageComponent,
     RequestPageComponent,
+    CarouselComponent,
   ],
 
   imports: [

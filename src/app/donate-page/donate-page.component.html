@@ -17,27 +17,44 @@
     </div>
     <div class="form_group">
       <form [formGroup]="formInfoGroup">
-        <div>
+        <div class="maincontainer">
           <div class="container">
-            <label>Name</label>
-            <input class="box" type="text" formControlName="name" />
+            <label style="text-align: left">Name</label>
+            <input
+              class="box"
+              type="text"
+              placeholder="enter name"
+              formControlName="name"
+            />
           </div>
           <div class="container">
             <label>Email</label>
-            <input class="box" type="text" formControlName="email" />
+            <input
+              class="box"
+              type="text"
+              placeholder="email"
+              formControlName="email"
+            />
           </div>
           <div class="container">
             <label>Phone Number</label>
-            <input class="box" type="tel" formControlName="phoneNumber" />
+            <input
+              class="box"
+              type="tel"
+              placeholder="phoneNumber"
+              formControlName="phoneNumber"
+            />
           </div>
         </div>
         <div formArrayName="foodDetails">
           <div class="container">
             <label>Food Details</label>
-            <input class="box" type="text" />
-            <button type="button" (click)="addFoodItem()">Add Item</button>
+            <button class="button-1" type="button" (click)="addFoodItem()">
+              Add Item
+            </button>
           </div>
           <div
+            class="maincontainer"
             *ngFor="let foodDetailsForm of foodDetails.controls; let i = index"
             [formGroupName]="i"
           >
@@ -59,30 +76,55 @@
             </div>
             <div class="container">
               <label>Name of the food item</label>
-              <input class="box" type="text" formControlName="foodItem" />
+              <input
+                class="box"
+                type="text"
+                placeholder="enter food name"
+                formControlName="foodItem"
+              />
             </div>
             <div class="container">
               <label>Quantity</label>
-              <input class="box" type="number" formControlName="quantity" />
+              <input
+                class="box"
+                type="number"
+                placeholder="quantity"
+                formControlName="quantity"
+              />
             </div>
-            <button type="button" (click)="removeFoodItem(i)">
+            <button class="button" type="button" (click)="removeFoodItem(i)">
               Remove Item
             </button>
           </div>
         </div>
-
-        <div formGroupName="location">
+        <div class="maincontainer" formGroupName="location">
           <div class="container">
             <label>Address</label>
-            <input class="box" type="text" formControlName="address" />
+            <input
+              class="box"
+              placeholder="enter address"
+              type="text"
+              formControlName="address"
+            />
           </div>
           <div class="container">
             <label>City/Town</label>
-            <input class="box" type="text" formControlName="city" />
+            <input
+              class="box"
+              type="text"
+              placeholder="city/town"
+              formControlName="city"
+            />
           </div>
           <div class="container">
             <label>State/Province</label>
-            <select name="state" id="state" class="box" formControlName="state">
+            <select
+              name="state"
+              id="state"
+              class="box"
+              placeholder="choose state/province"
+              formControlName="state"
+            >
               <option value=""></option>
               <option value="Andhra Pradesh">Andhra Pradesh</option>
               <option value="Aunachal Pradesh">Arunachal Pradesh</option>
@@ -126,20 +168,30 @@
           </div>
           <div class="container">
             <label>Zip Code/Postal Code</label>
-            <input class="box" type="text" formControlName="zipCode" />
+            <input
+              class="box"
+              type="text"
+              placeholder="enter zip/postal code"
+              formControlName="zipCode"
+            />
           </div>
         </div>
-
-        <div formGroupName="pickupDetails">
+        <div class="maincontainer" formGroupName="pickupDetails">
           <div class="container">
             <label>Pickup Date</label>
-            <input class="box" type="date" formControlName="pickupDate" />
+            <input
+              class="box"
+              type="date"
+              placeholder="choose date"
+              formControlName="pickupDate"
+            />
           </div>
           <div class="container">
             <label>Additional Details(if any)</label>
             <textarea
               class="box"
               type="text"
+              placeholder="enter additional details"
               formControlName="additionalDetails"
             >
             </textarea>

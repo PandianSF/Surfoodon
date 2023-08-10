@@ -12,6 +12,7 @@
   align-items: center;
   padding: 10px 16px;
   text-align: center;
+  justify-content: space-evenly;
 }
 img {
   width: 80%;
@@ -75,4 +76,9 @@ img {
   cursor: pointer;
   font-family: sans-serif;
   border-style: none;
+}
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
