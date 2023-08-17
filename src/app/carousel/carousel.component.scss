@@ -16,7 +16,7 @@
 .text {
   text-align: center;
   font-family: sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 .carouselhead {
   text-align: left;
@@ -89,16 +89,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px 20px;
 }
 .img {
   width: 50%;
-  align-items: center;
 }
 .content {
   width: 50%;
-  align-items: center;
 }
 .testimonial-role {
   font-size: 1.3rem;
   color: rgb(182, 182, 182);
+}
+.button {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: 450px;
+  right: 40px;
+  cursor: pointer;
+  background-color: orange;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0px 4px 8px 0px #c4c4c4;
+}
+.fade-in-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  animation: fadeIn 5s;
 }

@@ -15,6 +15,11 @@ const routes: Routes = [
     component: NavigationComponent,
     children: [
       {
+        path: '',
+        component: HomeComponent,
+        pathMatch: 'full',
+      },
+      {
         path: 'home',
         component: HomeComponent,
       },

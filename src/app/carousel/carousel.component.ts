@@ -16,11 +16,9 @@ import { transition, style, animate, trigger } from '@angular/animations';
   ],
 })
 export class CarouselComponent {
-  static testimonials: string;
+  // static testimonials: string;
   currentTestimonial: any;
   intervalId: any;
-
-  constructor() {}
   testimonials = [
     {
       name: 'George',
@@ -51,6 +49,8 @@ export class CarouselComponent {
       src: '../../assets/male.png',
     },
   ];
+  constructor() {}
+
   ngOnInit() {
     this.startAutoSlide();
     this.currentTestimonial = this.testimonials[0];
@@ -75,4 +75,5 @@ export class CarouselComponent {
       clearInterval(this.intervalId);
     }
   }
+  onClick() {}
 }
